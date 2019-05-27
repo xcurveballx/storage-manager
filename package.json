@@ -1,0 +1,24 @@
+{
+  "name": "storage-manager",
+  "version": "1.0.0",
+  "description": "a class providing functionality to interact with browsers' Storage object (sessionStorage and localStorage)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcurveballx/storage-manager.git"
+  },
+  "keywords": [
+    "storage",
+    "sessionStorage",
+    "localStorage"
+  ],
+  "author": "curveball",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xcurveballx/storage-manager/issues"
+  },
+  "homepage": "https://github.com/xcurveballx/storage-manager#readme"
+}
