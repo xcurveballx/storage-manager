@@ -5,7 +5,7 @@
  * @author Curveball <x.curveball.x@gmail.com>
  * @license MIT
  */
-export default class Storage {
+class Storage {
   /**
    * Creates a new Storage.
    * @param {object} options object with options (key/value pairs).
@@ -89,3 +89,4 @@ export default class Storage {
     this.storage.clear();
   }
 }
+export default Storage;
