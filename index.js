@@ -1,66 +1,91 @@
 /**
- * StorageManager manages saving & retrieving data.
+ * Class Storage manages saving & retrieving data.
  * Can be further extended to suit your needs better.
  *
- * MIT License
- * Copyright (c) 2019 curveball (https://github.com/xcurveballx)
+ * @author Curveball <x.curveball.x@gmail.com>
+ * @license MIT
  */
-
-export default class StorageManager {
-  let settings = {
-    type: 'sessionStorage'
-  },
-      dataObject = storage = null;
-
+export default class Storage {
+  /**
+   * Creates a new Storage.
+   * @param {object} options object with options (key/value pairs).
+   */
   constructor(options) {
-    settings = Object.assign(settings, options);
-    dataObject = {};
-    storage = window[settings.type];
+    /**
+     * @default
+     * @property {string}  setting.type the default storage type.
+     */
+    let settings = {
+      type: 'sessionStorage'
+    };
+
+    this.settings = Object.assign(settings, options);
+    this.dataObject = {};
+    this.storage = window[settings.type];
   }
 
-  // checks whether the storage available
+  /**
+   * Checks whether the storage available.
+   * @returns {boolean}
+   */
   isAvailable() {
     try {
       let x = '__storage_test__';
-      storage.setItem(x, x);
-      storage.removeItem(x);
+      this.storage.setItem(x, x);
+      this.storage.removeItem(x);
       return true;
     } catch(e) {
       return false;
     }
   }
 
-  // saves the data item
+  /**
+   * Saves the data.
+   * @param {string} name storage item name.
+   * @param {object} data data to be stored.
+   * @returns {boolean|string} returns false or storage item name.
+   */
   save(name, data) {
     let dataStr = JSON.stringify(data);
 
     if(!this.isAvailable()) {
-      dataObject[name] = dataStr;
+      this.dataObject[name] = dataStr;
       return false;
     }
 
     try {
-      storage.setItem(name, dataStr);
+      this.storage.setItem(name, dataStr);
       return name;
     } catch(e) {
-      dataObject[name] = dataStr;
+      this.dataObject[name] = dataStr;
       return false;
     }
   }
 
-  // returns the requested data item
+  /**
+   * Returns the requested data.
+   * @param {string} name storage item name.
+   * @returns {object} returns requested data.
+   */
   restore(name) {
-    let restoredData = dataObject[name] ? dataObject[name] : storage.getItem(name);
+    let restoredData = this.dataObject[name] ? this.dataObject[name] : this.storage.getItem(name);
     return JSON.parse(restoredData);
   }
 
-  // removes indicated data item
+  /**
+   * Removes indicated storage item.
+   * @param {string} name storage item name.
+   * @returns {undefined}
+   */
   remove(name) {
-    storage.removeItem(name);
+    this.storage.removeItem(name);
   }
 
-  // clears all the data
+  /**
+   * Clears all the data.
+   * @returns {undefined}
+   */
   clear() {
-    storage.clear();
+    this.storage.clear();
   }
 }
