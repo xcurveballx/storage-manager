@@ -3,7 +3,7 @@
 
 Class `Storage` provides us with a simple set of methods needed to interact with browsers' `sessionStorage` & `localStorage` objects. The detailed description of the methods can be found in the documentation.
 
-It is presented as a npm package and can be installed via `npm install storage-manager`. Being written as ES2015 class, it should be imported before usage. All its methods can be called within the instance object like
+It is presented as npm package and can be installed via `npm install storage-manager`. Being written as ES2015 class, it should be imported before usage. All its methods can be called within the instance object like
 ```js
 let st = new Storage();
 st.save("users", data)

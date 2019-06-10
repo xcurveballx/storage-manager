@@ -7,14 +7,15 @@
  */
 class Storage {
   /**
-   * Creates a new Storage.
-   * @param {object} options object with options (key/value pairs).
+   * Creates a new Storage. Optional object `options` can be passed in. Its properties will be merged into default properties via `Object.assign()`.
+   * @param {Object.<string, *>} [options] object with options (key/value pairs).
+   * @property {object}  settings the storage settings.
+   * @property {string}  settings.type the default storage type - 'sessionStorage'.
+   * @property {object}  dataObject fallback where the data is kept if storage is not available.
+   * @property {object}  storage link to the corresponding window storage object.
+   * @this Storage
    */
   constructor(options) {
-    /**
-     * @default
-     * @property {string}  setting.type the default storage type.
-     */
     let settings = {
       type: 'sessionStorage'
     };
