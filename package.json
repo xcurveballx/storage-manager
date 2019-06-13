@@ -4,7 +4,9 @@
   "description": "a class providing functionality to interact with browsers' Storage object (sessionStorage and localStorage)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "jsdoc index.js -c ./node_modules/ink-docstrap/template/jsdoc.conf.json  -t ./node_modules/ink-docstrap/template -d ./docs -R README.md && git add -A",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

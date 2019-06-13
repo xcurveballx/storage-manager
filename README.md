@@ -1,4 +1,4 @@
-# storage-manager
+# Storage manager
 
 
 Class `Storage` provides us with a simple set of methods needed to interact with browsers' `sessionStorage` & `localStorage` objects. The detailed description of the methods can be found in the documentation.
