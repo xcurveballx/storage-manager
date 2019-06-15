@@ -1,6 +1,6 @@
 {
   "name": "@curveballerpacks/storage-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a class providing functionality to interact with browsers' Storage object (sessionStorage and localStorage)",
   "main": "index.js",
   "scripts": {
