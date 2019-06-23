@@ -90,4 +90,4 @@ class Storage {
     this.storage.clear();
   }
 }
-export default Storage;
+module.exports = Storage;
